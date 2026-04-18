@@ -20,5 +20,5 @@ jobs:
       - name: Instalar dependencias
         run: bun install
 
-      - name: Ejecutar app
-        run: bun run src/index.ts
+      - name: Checkeo de TypeScript
+        run: bunx tsc --noEmit
