@@ -17,6 +17,16 @@ app.post('/login', ({ body }) => {
     return { message: `Bienvenido, ${user}!` }
 })
 
+app.post('/register', ({ body }) => {
+    const { user } = body as { user?: string }
+    
+    if (!user) {
+        return { error: 'Se requiere el usuario'}
+    }
+
+    return { message: `Usuario registrado, ${user}!` }
+})
+
 app.listen(3000)
 
 console.log('Servidor escuchando en http://localhost:3000')
