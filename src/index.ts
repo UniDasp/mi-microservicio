@@ -10,8 +10,8 @@ app.get('/', () => ({
 app.post('/login', ({ body }) => {
     const { user } = body as { user?: string }
     
-    if (!user) {
-        return { error: 'Se requiere el usuario'}
+    if (!user || user.length < 3) {
+        return { error: 'El usuario debe tener al menos 3 caracteres'}
     }
 
     return { message: `Bienvenido, ${user}!` }
@@ -20,8 +20,8 @@ app.post('/login', ({ body }) => {
 app.post('/register', ({ body }) => {
     const { user } = body as { user?: string }
     
-    if (!user) {
-        return { error: 'Se requiere el usuario'}
+    if (!user || user.length < 3) {
+        return { error: 'El usuario debe tener al menos 3 caracteres'}
     }
 
     return { message: `Usuario registrado, ${user}!` }
