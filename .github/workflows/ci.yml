@@ -1,0 +1,24 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v3
+
+      - name: Instalar Bun
+        uses: oven-sh/setup-bun@v1
+
+      - name: Instalar dependencias
+        run: bun install
+
+      - name: Ejecutar app
+        run: bun run src/index.ts
